@@ -1,24 +1,30 @@
 Feature:  Advertisements in favourites
 
-  Scenario: Checking if button 'Add to favs' button is visible and clickable
-    Given We have opened the web page
-    When We enter any category and open first add
-    Then There is a button
-    And It is clickable
-    And It is visible
+  Scenario: Adding advertisement to favorites from the advertisement details page
+    Given We have opened the home page
+    When We enter category "Легковые авто"
+    And Open subcategory "Audi" "A6"
+    And Open first advertisement
+    And Add it to favorites
+    Then Advertisement appears in the favorites category
 
-#  Scenario: Clicking 'Add to favs' in the category adds add to favorites
-#    When We click 'Add to favs' button in category listing
-#    Then Add is added to favorites
-#
-#  Scenario: Clicking 'Add to favs' in the serarch adds add to favorites
-#    When We click 'Add to favs' button in search
-#    Then Add is added to favorites
-#
-#  Scenario: Removing advertisements from favorites
-#    When We remove all adevertisements form favorites
-#    Then Then there are no adversiments in favorites
-#
-#  Scenario: Adding multiple adds to favorites
-#    When Adding 3 atdvertisements to favorites
-#    Then There are 3 adversisement in favorites
+  Scenario: Adding multiple advertisements to favorites from the list of the advertisements
+    Given We have opened the home page
+    When We enter category "Легковые авто"
+    And Open subcategory "Audi" "A6"
+    And Add 3 advertisements to the favorites from the list
+    Then 3 advertisements appear in the favorites category
+
+# To-do   And these are exactly those advertisements we have added
+
+  Scenario: Adding advertisement to favorites from the search page
+    Given We have opened the home page
+    And We enter category "Легковые авто"
+    When We have filtered by min price 1000 and max price 5000
+    And We add advertisement to favorites from the search page
+    Then Advertisement appears in the favorites page
+
+  Scenario: Removing advertisements from favorites
+    Given We have already added some advertisements in favorites category
+    When We remove all advertisements form favorites
+    Then Then there are no advertisements in favorites
