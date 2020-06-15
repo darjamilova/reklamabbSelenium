@@ -2,14 +2,13 @@ package pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import seleniumsupport.BaseTestClass;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class ListOfAdds extends BaseTestClass {
-    //e.g. https://reklama.bb.lv/ru/job_and_studies/jobs_offered/administration/managers/otrasli/table.html
+    //e.g. https://reklama.bb.lv/ru/transport/cars/audi/a6/table.html
     private final static By ADVERT_TEXT_LOCATOR = By.xpath(".//div[@class='text']/a");
     private final static By ADD_FAVORITE_ICON = By.xpath(".//a[@class='fav-add']/img");
     private final static By REMOVE_FAVORITE_ICON = By.xpath(".//a[@class='fav-remove']/img");

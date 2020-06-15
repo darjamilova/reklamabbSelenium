@@ -8,16 +8,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import seleniumsupport.BaseTestClass;
 
 public class AdvertDetailsPage extends BaseTestClass {
+    //e.g. https://reklama.bb.lv/ru/transport/cars/audi/a6/buy/11350134.html
 
     private static final By FAVOURITE_BUTTON = By.id("favs-link");
 
     public void addRemoveFavorite() {
-//        WebDriverWait wait = new WebDriverWait(driver(), 10);
-//        try {
-//            wait.until(ExpectedConditions.elementToBeClickable(FAVOURITE_BUTTON));
-//        } catch (TimeoutException e) {
-//            System.out.println("Element by" + FAVOURITE_BUTTON + " was not found or not clickable");
-//        }
         WebElement favouriteButton = findElement(FAVOURITE_BUTTON);
         scrollToElement(favouriteButton);
         favouriteButton.click();

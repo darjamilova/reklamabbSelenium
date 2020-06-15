@@ -11,12 +11,6 @@ public class Header extends BaseTestClass {
     private final static By linkToFavoritesPage = By.id("favorites-link");
 
     public FavoritesPage goToFavoritesPage() {
-        WebDriverWait wait = new WebDriverWait(driver(), 10);
-        try {
-            wait.until(ExpectedConditions.elementToBeClickable(linkToFavoritesPage));
-        } catch (TimeoutException e) {
-            System.out.println("Element by" + linkToFavoritesPage + " was not found or not clickable");
-        }
         WebElement linkToFavorites = findElements(linkToFavoritesPage).get(0);
         scrollToElement(linkToFavorites);
         linkToFavorites.click();

@@ -8,7 +8,7 @@ import seleniumsupport.BaseTestClass;
 import java.util.List;
 
 public class SubcategoriesPage extends BaseTestClass {
-    //e.g. https://reklama.bb.lv/ru/job_and_studies/jobs_offered/menus.html
+    //e.g. https://reklama.bb.lv/ru/transport/cars/audi/menus.html
 
     private static final By CATEGORIES_LOCATOR = By.xpath(".//fieldset[contains(@class, 'cats')]//label/h2");
     private static final By PRICE_BOX_LOCATOR = By.id("filter-price");

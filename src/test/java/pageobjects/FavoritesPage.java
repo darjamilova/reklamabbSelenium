@@ -8,6 +8,7 @@ import seleniumsupport.BaseTestClass;
 import java.util.List;
 
 public class FavoritesPage extends BaseTestClass {
+    //e.g. https://reklama.bb.lv/ru/transport/cars/audi/a6/buy/favorites.html
 
     private final static By TEXT_OF_ADVERT = By.xpath(".//div[@id='icon_view']//p");
     private final static By REMOVE_FAVORITE_ICON = By.className("fav-remove");
