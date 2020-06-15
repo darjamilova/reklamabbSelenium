@@ -4,11 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 
 public class Controller {
-    public static Browser executionBrowser = Browser.FIREFOX;
+    public static Browser executionBrowser = Browser.IE;
 
     public enum Browser {
         FIREFOX,
@@ -29,8 +31,17 @@ public class Controller {
                 driver = new ChromeDriver();
                 break;
             case IE:
-                System.setProperty("webdriver.ie.driver", "src/test/resources/drivers/IEDriverServer32.exe");
-                driver = new InternetExplorerDriver();
+                DesiredCapabilities cap = DesiredCapabilities.internetExplorer();
+                cap.setCapability("nativeEvents", false);
+                cap.setCapability("unexpectedAlertBehaviour", "accept");
+                cap.setCapability("ignoreProtectedModeSettings", true);
+                cap.setCapability("disable-popup-blocking", true);
+                cap.setCapability("enablePersistentHover", true);
+                cap.setCapability("ignoreZoomSetting", true);
+                cap.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+                InternetExplorerOptions options = new InternetExplorerOptions();
+                options.merge(cap);
+                driver = new InternetExplorerDriver(options);
                 break;
             case FIREFOX:
                 System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver.exe");
